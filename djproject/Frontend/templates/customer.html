@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+
+    <h1>ALL CUSTOMER</h1>
+    <a href="/orders/customers/add/">
+        <button>Add Customer</button>
+    </a>
+  <!-- <img src=" {% static 'assets/images/floor.jpg'%} " alt=" Floorimage ">  -->
+    <table>
+        <thead>
+            <tr>
+                <th>Customer Name</th>
+                <th>Customer Since</th>
+                <th>Update</th>
+                <th>Delete</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            {% for customer in all_customers %}
+
+                <tr>
+                    <td>{{customer.customer_name}}</td>
+                    <td>{{customer.customer_since}}</td>
+                    <td>
+                        <a href="{% url 'customer_update' customer.id %}">
+                            <button>UPDATE</button>
+                        </a>
+                    </td>
+                    <td>
+                        <a href="{% url 'customer_delete' customer.id %}">
+                            <button>DELETE</button>
+                        </a>
+                        
+                    </td>
+
+                </tr>
+
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <p class="white-text">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+         Dignissimos magnam pariatur totam dolorem a accusantium nihil neque perspiciatis,
+         quaerat qui doloribus earum dicta porro? Sequi tempora deserunt laboriosam. Doloremque, voluptatum.</p>
+
+{% endblock %}
+

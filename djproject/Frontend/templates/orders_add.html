@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+ <h1>ORDERS ADD PAGE</h1>
+
+ <form action="" method="POST">
+    {% csrf_token %}
+    {{orders_form}}
+
+    <input type="submit">
+
+ </form>
+
+
+
+{% endblock %}
